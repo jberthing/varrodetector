@@ -97,6 +97,29 @@ When you click "Save Results", a new folder named "results" will be created in y
 
 Some sample images to test the program can be downloaded [from here.](https://unirioja-my.sharepoint.com/:u:/g/personal/jodivaso_unirioja_es/EREh4ExsQDNEtqyid0AeL_ABldNzCcpmlQ4J-SzsjvT07w?e=5c65BJ) 
 
+## Citation
+
+If you use this software, please cite this paper:
+
+Yániz, J., Casalongue, M., Martinez-de-Pison, F. J., Silvestre, M. A., Consortium, B., Santolaria, P., & Divasón, J. (2025). *An AI-Based Open-Source Software for Varroa Mite Fall Analysis in Honeybee Colonies*. Agriculture, 15(9), 969. https://doi.org/10.3390/agriculture15090969
+
+Bibtex:
+```
+@article{VarroDetector,
+  title = {An AI-Based Open-Source Software for Varroa Mite Fall Analysis in Honeybee Colonies},
+  volume = {15},
+  ISSN = {2077-0472},
+  url = {http://dx.doi.org/10.3390/agriculture15090969},
+  DOI = {10.3390/agriculture15090969},
+  number = {9},
+  journal = {Agriculture},
+  publisher = {MDPI AG},
+  author = {Yániz,  Jesús and Casalongue,  Matías and Martinez-de-Pison, Francisco Javier and Silvestre,
+Miguel Angel and Consortium,  Beeguards and Santolaria,  Pilar and Divasón,  Jose},
+  year = {2025}
+}
+```
+
 ## Acknowledgments
 
 This research has been funded by: 
