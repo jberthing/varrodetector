@@ -581,7 +581,6 @@ class ModernTiledImageViewer(ctk.CTkFrame):
         self.canvas.bind("<ButtonPress-2>", self.start_pan)
         self.canvas.bind("<B2-Motion>", self.pan)
 
-    # Add these new methods to ModernTiledImageViewer:
     def set_confidence_threshold(self, value):
         """Update confidence threshold and redraw boxes without reloading image"""
         self.confidence_threshold = value
@@ -1736,7 +1735,6 @@ class ModernVarroaDetectorGUI:
             )
             self.image_viewer.stop_roi_drawing()
 
-    # Add this new method to the ModernVarroaDetectorGUI class:
     def cleanup(self, exit_program=True):
         """Clean up temporary files and folders before exit"""
         try:
@@ -1769,25 +1767,28 @@ class ModernVarroaDetectorGUI:
             self.stats_frame,
             text="Current Image: 0 varroa mites",
             font=self.default_font,
-            text_color=COLORS['text']
+            text_color=COLORS['text'],
+            height=20
         )
-        self.current_boxes_label.pack(anchor="w")
+        self.current_boxes_label.pack(anchor="w",pady=(0, 0))
 
         self.subfolder_boxes_label = ctk.CTkLabel(  # New label for subfolder count
             self.stats_frame,
             text="Current Subfolder: 0 varroa mites",
             font=self.default_font,
-            text_color=COLORS['text']
+            text_color=COLORS['text'],
+            height=20
         )
-        self.subfolder_boxes_label.pack(anchor="w")
+        self.subfolder_boxes_label.pack(anchor="w",pady=(0, 0))
 
         self.total_boxes_label = ctk.CTkLabel(
             self.stats_frame,
             text="Total (all images): 0 varroa mites",
             font=self.default_font,
-            text_color=COLORS['text']
+            text_color=COLORS['text'],
+            height=20
         )
-        self.total_boxes_label.pack(anchor="w")
+        self.total_boxes_label.pack(anchor="w",pady=(0, 0))
 
     def _get_final_boxes(self, image_name):
         """
@@ -2314,6 +2315,7 @@ class ModernVarroaDetectorGUI:
             self.green_line_enabled = {}
             self.image_confidence_thresholds = {}
             self.boxes_green_lines = {}
+            self.image_listbox.fullnames = {}
 
             # Update statistics to show zero counts
             self.update_box_statistics()
@@ -2621,9 +2623,6 @@ class ModernVarroaDetectorGUI:
         into the viewer based on the green-line-enabled state.
         """
         self.current_image = selected_image_name
-        print(self.green_line_enabled)
-        print(self.current_image)
-        print(self.current_image in self.green_line_enabled)
         is_enabled = self.green_line_enabled.get(self.current_image, False)
 
         # --- 1. Determine which image file to display ---
@@ -2707,7 +2706,7 @@ class ModernVarroaDetectorGUI:
         else:
             help_window.transient(self.root)
             help_window.grab_set()
-        help_window.geometry("800x500")
+        help_window.geometry("810x500")
 
 
         # Create tabview for better organization
@@ -2900,6 +2899,8 @@ class ModernVarroaDetectorGUI:
         workflow_info = ("The analysis will be also performed to any image contained in subfolders of the input folder. "
                          "The confidence score can be set up individually for each image. Lower confidence score will show more detections, but possibly with more false positives.\n\n"
                          "The \"Apply Threshold to All Images\" button allows the user to quickly set the same confidence threshold across all the images.\n\n"
+                         "When the \"String Detection\" checkbox is enabled, the program will try to detect green strings to count only mites within the area delimited by the strings. "
+                         "This setting can be applied for each image individually or for all images at once using the \"Apply to All Images\" button.\n\n"
                          "The Save Button will save the images (with the printed detections) and the coordinates of the detections (the labels) in a folder named \"results\" within the input folder.")
         create_content(workflow_frame, workflow_info)
 
