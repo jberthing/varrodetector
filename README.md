@@ -1,7 +1,7 @@
 # VarroDetector
 
 <p>VarroDetector is a <b>free and open-source</b> tool designed to identify and count Varroa mites in images of sticky sheets taken with smartphones.
-The software runs in low-range computers (no GPU is needed). **Neither installation nor internet connection is needed**, just double-click
+The software runs in low-range computers (no GPU is needed). <b>Neither installation nor internet connection is needed</b>, just double-click
 on the executable.</p>
 
 <p>The detection process is based on a YOLO nano model (currently, YOLOv11 nano) specifically trained on hundreds of images to identify Varroa mites.</p>
