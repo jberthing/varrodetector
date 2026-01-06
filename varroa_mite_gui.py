@@ -818,6 +818,10 @@ class ModernTiledImageViewer(ctk.CTkFrame):
             if self.current_box:
                 self.canvas.delete(self.current_box)
 
+            # Sync the boxes back to GUI.current_boxes so statistics and saving work correctly
+            if hasattr(self.GUI, 'current_image') and self.GUI.current_image:
+                self.GUI.current_boxes[self.GUI.current_image] = self.all_boxes.copy()
+
             # Update statistics in GUI
             if hasattr(self.GUI, 'update_box_statistics'):
                 self.GUI.update_box_statistics()
@@ -847,6 +851,11 @@ class ModernTiledImageViewer(ctk.CTkFrame):
         if box:
             self.all_boxes.remove(box)
             self.draw_all_boxes()
+
+            # Sync the boxes back to GUI.current_boxes so statistics and saving work correctly
+            if hasattr(self.GUI, 'current_image') and self.GUI.current_image:
+                self.GUI.current_boxes[self.GUI.current_image] = self.all_boxes.copy()
+            
             # Update statistics in GUI
             if hasattr(self.GUI, 'update_box_statistics'):
                 self.GUI.update_box_statistics()
